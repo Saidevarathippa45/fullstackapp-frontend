@@ -1,0 +1,23 @@
+.delete-style{
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    width:250px;
+    height: 200px;
+    position: relative;
+    left: 500px;
+    margin: 30px;
+    box-shadow: 10px 10px 10px 10px rgba(128, 128, 128, 0.411);
+    
+}
+::placeholder{
+    color: gray;
+    text-align:justify;
+    font-size: 1rem;
+}
+input{
+    outline: cadetblue;
+    border:cadetblue;
+    outline-color: whitesmoke;
+    box-shadow: 10px 10px 10px 10px rgba(128, 128, 128, 0.411);
+    
+}
