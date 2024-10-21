@@ -25,7 +25,7 @@
         outline-color: whitesmoke;
     }
     ::placeholder{
-        color: rgba(245, 245, 245, 0.582);
+        color:deeppink;
         text-align:justify;
         font-size: 1rem;
     }

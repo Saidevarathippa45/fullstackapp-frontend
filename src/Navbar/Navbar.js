@@ -11,10 +11,10 @@ function Navbar(){
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
-      <Link className="nav-item nav-link active" to="/register">Register</Link>
-      <Link className="nav-item nav-link active" to="/login">Login</Link>
-      <Link className="nav-item nav-link active" to="/getAll">GetAllUsers</Link>
-      <Link className="nav-item nav-link active" to="/delete">DeleteUser</Link>
+      <Link className="nav-item nav-link active" to={"/register"}>Register</Link>
+      <Link className="nav-item nav-link active" to={"/login"}>Login</Link>
+      <Link className="nav-item nav-link active" to={"/getAll"}>GetAllUsers</Link>
+      <Link className="nav-item nav-link active" to={"/delete"}>DeleteUser</Link>
       
     </div>
   </div>

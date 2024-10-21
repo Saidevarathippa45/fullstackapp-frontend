@@ -1,5 +1,6 @@
 import "../Styles/deleteuser.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 function DeleteUser(){
 
     const [users,setUsers]=useState([]);
@@ -13,20 +14,18 @@ function DeleteUser(){
             console.log(result)
         })
     },[])
-    const DeleteUser=(id)=>{
-        const filteredUser=users.filter(user=>user.userId !== id)
-        setUpdateUser(filteredUser);
-        console.log(updateUser)
-    }
+    
+        const DeleteUser=(userId)=>{
+            axios.delete(`http://localhost:8081/user/delete/${userId}`)
+            .then((response)=>{
+                console.log(response.data)
+                setUsers(response)
+            })
+        }
+    
     return(
         <div className="Container">
-            <div className="delete-style">
-            <form>
-                <h3>DeleteUser</h3><br/>
-                <input type="number" placeholder="enter userid"/><br/>
-                <button className="btn btn-danger" value={id} onChange={(e)=>setId(e.target.value)} onClick={()=>DeleteUser(id)}>DeleteUser</button>
-            </form>
-        </div>
+            
         <div>
         <table className="table table-dark">
   <thead>
@@ -39,20 +38,22 @@ function DeleteUser(){
       <th scope="col">Password</th>
       <th scope="col">ConfirmPassword</th>
       <th scope="col">Address</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
     {
-        updateUser.map((updateuser,index)=>(
+        users.map((user,index)=>(
             <tr>
-      <th scope="row">{updateuser.userId}</th>
-      <td>{updateuser.name}</td>
-      <td>{updateuser.userName}</td>
-      <td>{updateuser.email}</td>
-      <td>{updateuser.mobile}</td>
-      <td>{updateuser.password}</td>
-      <td>{updateuser.confirmPassword}</td>
-      <td>{updateuser.address}</td>
+      <th scope="row">{user.userId}</th>
+      <td>{user.name}</td>
+      <td>{user.userName}</td>
+      <td>{user.email}</td>
+      <td>{user.mobile}</td>
+      <td>{user.password}</td>
+      <td>{user.confirmPassword}</td>
+      <td>{user.address}</td>
+      <td><button className="btn btn-danger" value={id} onClick={()=>DeleteUser(user.userId)} >DeleteUser</button></td>
     </tr>
         ))
     }
